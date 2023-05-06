@@ -28,21 +28,26 @@ If the LED doesn't fit, use a 5 mm drill to ream the hole.
 
 ### Installing
 
-You will need to route some additional wires coming from the base of the printer. You can zip-tie them to the existing cables that go to the X stepper. **Do not** attempt to skimp on circuitry or wiring by powering the LED from any point on the main board or the 5 V line of an endstop. I have tried the latter and although it seemed to work at first, after a while something got overloaded and the line went dead for several hours. It did recover after a while but occasionally the LED doesn't light up (luckily powering that single LED is the only purpose of this 5 V line). The bottom line is not to attempt to power the LED from any point on the main printer board.
+You will need to route some additional wires coming from the base of the printer. You can attach them to the existing cables that go to the X stepper. I advise against using zip-ties for this, because they can induce strain that may cause the wires to develop a bad connection, which is especially problematic if a wire driving the stepper motor becomes damaged. If you do use zip-ties, do not tighten them all the way. Better is to avoid zip-ties altogether and instead, either wrap the extra cable around the existing ones, or use some soft flexible ties or perhaps simple adhesive tape.
 
-Your best and safest option to power the LED is to hook up a completely independent supply to the mains line (you can piggyback on the screw connectors of the PSU, which will also cause LEDs to be switched together with the rest of the printer). This is what I initially did, it eliminates any risk of overloading the PSU or blowing up something non-protected on the rather expensive main board. After I had installed a Raspberry Pi for my [variable fan speed controller](https://github.com/DrLex0/MightyVariableFan), I simply tapped into one of the 5 V pins of the Pi's GPIO pin header. (You could take this a step further by actually making the LED switchable through a GPIO pin, but then you should not drive the LED directly from the pin but do it through a MOSFET board of some kind.)
+**Do not** attempt to skimp on circuitry or wiring by powering the LED from any point on the main board or the 5 V line of an endstop. You may exceed the maximum current draw of a circuit, and cause permanent damage to the main board.
 
-A good alternative is a current source (an LED driver) that produces a fixed 20 or 25 mA current from the 24 V input of the main power supply. Do not attempt to use a plain series resistor to bring down the 24 V to the ≈3.2 V needed for the LED: not only will it waste about 0.4 W, it will also most likely go up in smoke.
+Your best and safest option to power the LED is to hook up a completely independent supply to the mains line (you can piggyback on the screw connectors of the PSU, which will also cause LEDs to be switched together with the rest of the printer). This is what I initially did, it eliminates any risk of overloading the PSU or blowing up something unprotected on the rather expensive main board. After I had installed a Raspberry Pi for my [variable fan speed controller](https://github.com/DrLex0/MightyVariableFan), I simply tapped into one of the 5 V pins of the Pi's GPIO pin header. (You could take this a step further by actually making the LED switchable through a GPIO pin, but then you should not drive the LED directly from the pin but do it through a MOSFET board of some kind.)
+
+A good alternative is a current source (an LED driver) that efficiently produces a fixed 20 or 25 mA current from the 24 V input of the main power supply. Do not attempt to use a plain series resistor to bring down the 24 V to the ≈3.2 V needed for the LED: not only will it waste about 0.4 W, it will also most likely go up in smoke.
 
 
 
 ## Updates
 
+### 2016/09/25
+First published on Thingiverse.
+
 ### 2017/07/03: v2
 Added v2 version which is aimed slightly lower so it lights up more of the print. This is also a tad longer so it has less risk of colliding with modded carriages, and the overall shape has been made such that it is less likely to warp when printed in ABS.
 
 ### 2020/08/16: v3
-Extended the little cover such that it better shields your eyes from direct light of the LED.
+Migrated to GitHub. Extended the little cover such that it better shields your eyes from direct light of the LED.
 
 
 ## Tags
